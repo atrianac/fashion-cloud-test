@@ -1,0 +1,6 @@
+{
+    "cache": {
+        "mongoUrl": "mongodb://localhost:27017/cache",
+        "ttl": 5
+    }
+}

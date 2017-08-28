@@ -11,6 +11,7 @@
   "author": "Alejandro Triana",
   "license": "ISC",
   "dependencies": {
+    "@types/config": "0.0.32",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "errorhandler": "^1.5.0",
@@ -27,10 +28,12 @@
     "@types/mongodb": "^2.2.10",
     "@types/mongoose": "^4.7.21",
     "@types/morgan": "^1.7.32",
+    "config": "^1.26.2",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ts": "^6.0.0-beta.16",
+    "nodemon": "^1.11.0",
     "typescript": "^2.4.2"
   }
 }
