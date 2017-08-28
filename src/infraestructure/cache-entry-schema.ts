@@ -14,5 +14,3 @@ cacheSchema.pre("save", function(next) {
 	}
 	next();
 });
-
-console.log("hellooo");
