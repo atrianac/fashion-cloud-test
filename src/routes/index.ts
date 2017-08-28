@@ -42,7 +42,7 @@ export class CacheRoute extends BaseRoute {
   public createEntry(req: Request, res: Response, next: NextFunction) {
     console.log("[CacheRoute::createEntry] Creating cache entry.");
     Object.keys(req.query).map(key => 
-      this.cacheEntryService.putInCache(key)
+      this.cacheEntryService.mergeInCache(key, req.query[key])
       .then(ce => {
         res.status(201);
         res.json(ObjectUtils.mongoModelToCanonical(ce));
