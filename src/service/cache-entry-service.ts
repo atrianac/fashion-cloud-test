@@ -25,8 +25,19 @@ export class CacheEntryService {
     public mergeInCache(key: string, value: string): Promise<CacheEntryModel> {
         return new Promise<CacheEntryModel>((resolve, rejected) => {
             this.cacheModel.findOne({ "key": key }).exec((err, res) => {
-                res.value = value;
-                res.save();
+                if(res != null) {
+                    res.value = value;
+                    res.save();
+                    resolve(res);
+                } else {
+                    this.cacheModel.create({
+                        _id: key,
+                        key: key,
+                        value: value,
+                        ttl: parseInt(config.get('cache.ttl'))
+                    }).then(rs => resolve(rs))
+                    .catch(err => rejected(err));
+                }
             });
         });
     }
