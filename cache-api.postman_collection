@@ -1,0 +1,86 @@
+{
+	"variables": [],
+	"info": {
+		"name": "cache-api",
+		"_postman_id": "d7cacf06-6cf4-5b5b-fe46-c237e8c11355",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Entries",
+			"request": {
+				"url": "http://localhost:8080/fashion-cache/entries",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All Entries",
+			"request": {
+				"url": "http://localhost:8080/fashion-cache/entries",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Entry",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/fashion-cache/entries?entry-9=hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fashion-cache",
+						"entries"
+					],
+					"query": [
+						{
+							"key": "entry-9",
+							"value": "hello",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Entry",
+			"request": {
+				"url": "http://localhost:8080/fashion-cache/entries/entry-1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Entry",
+			"request": {
+				"url": "http://localhost:8080/fashion-cache/entries/entry-3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
