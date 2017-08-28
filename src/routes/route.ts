@@ -3,10 +3,10 @@ import { NextFunction, Request, Response } from "express";
 
 export class BaseRoute {
 
-  protected title: string;
+  protected static baseUrl : string = "/fashion-cache";
 
-  constructor() {
-    this.title = "Fashion Test";
+  protected static buildUrl(path: string): string { 
+    return this.baseUrl + "/" + path; 
   }
   
 }
