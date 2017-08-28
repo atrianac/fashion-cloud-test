@@ -22,17 +22,24 @@ export class CacheEntryService {
         });
     }
 
-    public mergeInCache(key: string, value: string): boolean {
-        return true;
+    public mergeInCache(key: string, value: string): Promise<CacheEntryModel> {
+        return new Promise<CacheEntryModel>((resolve, rejected) => {
+            this.cacheModel.findOne({ "key": key }).exec((err, res) => {
+                res.value = value;
+                res.save();
+            });
+        });
     }
 
     public getFromCache(key: string): Promise<CacheEntryModel> {
         return new Promise<CacheEntryModel>((resolve, rejected) => {
             this.cacheModel.findOne({ "key": key }).exec((err, res) => {
                 if (res == null) {
+                    console.log("[CacheEntryService:getFromCache] Cache miss");
                     this.putInCache(key).then(ce => resolve(ce))
                         .catch(ierr => rejected(err));
                 } else {
+                    console.log("[CacheEntryService:getFromCache] Cache hit");
                     resolve(res);
                 }
             })
@@ -73,6 +80,28 @@ export class CacheEntryService {
                 }
             });
         });
+    }
+
+    public purgeDatabase(): void {
+
+        console.log("[CacheEntryService:purgeDatabase] Purge Database init");
+
+        let uf = () => this.getAllKeysFromCache().then(res => {
+            res.map(item => {
+                console.log(`[CacheEntryService:purgeDatabase] Purge ${item.key}`);
+                if((item.ttl - 1) == 0) {
+                    this.removeFromCache(item.key);
+                } else {
+                    console.log(`[CacheEntryService:purgeDatabase] Updating ${item.key}`);
+                    this.cacheModel.findOne({ "key": item.key }).exec((err, res) => {
+                        res.ttl = res.ttl - 1;
+                        res.save();
+                    });
+                }
+            })
+        });
+
+        setInterval(uf, parseInt(config.get('cache.purgeTime')));
     }
 
     private generateRandomValue(): String {

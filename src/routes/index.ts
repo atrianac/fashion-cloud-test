@@ -11,6 +11,7 @@ export class CacheRoute extends BaseRoute {
   constructor() {
     super();
     this.cacheEntryService = new CacheEntryService();
+    this.cacheEntryService.purgeDatabase();
   }
 
   public getAllKeysFromCache(req: Request, res: Response, next: NextFunction) {

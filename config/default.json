@@ -1,6 +1,7 @@
 {
     "cache": {
         "mongoUrl": "mongodb://localhost:27017/cache",
-        "ttl": 5
+        "ttl": 5,
+        "purgeTime": 60000
     }
 }
