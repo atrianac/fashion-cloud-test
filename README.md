@@ -15,6 +15,13 @@
 npm run grunt
 npm start
  ```
+
+In order to run the unit tests, run the following command:
+
+  ```bash
+npm run grunt
+npm test
+ ```
  
  ## Testing the Endpoints
  
