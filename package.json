@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./bin/www",
     "grunt": "grunt",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "mocha dist/test/service"
   },
   "author": "Alejandro Triana",
   "license": "ISC",
@@ -23,17 +24,22 @@
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.5",
+    "@types/chai": "^4.0.4",
+    "@types/config": "0.0.32",
     "@types/cookie-parser": "^1.4.1",
     "@types/errorhandler": "0.0.31",
     "@types/method-override": "0.0.30",
+    "@types/mocha": "^2.2.42",
     "@types/mongodb": "^2.2.10",
     "@types/mongoose": "^4.7.21",
     "@types/morgan": "^1.7.32",
-    "@types/config": "0.0.32",
+    "chai": "^4.1.1",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ts": "^6.0.0-beta.16",
+    "mocha": "^3.5.0",
+    "mocha-typescript": "^1.1.7",
     "nodemon": "^1.11.0",
     "typescript": "^2.4.2"
   }
