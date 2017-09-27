@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development nodemon ./bin/www",
     "grunt": "grunt",
     "start": "node ./bin/www",
-    "test": "mocha dist/test/service"
+    "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/service/*.ts"
   },
   "author": "Alejandro Triana",
   "license": "ISC",
@@ -38,9 +38,17 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ts": "^6.0.0-beta.16",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^1.1.2",
+    "gulp-mocha": "^4.3.1",
+    "gulp-tslint": "^8.1.2",
+    "gulp-typescript": "^3.2.2",
     "mocha": "^3.5.0",
-    "mocha-typescript": "^1.1.7",
+    "mocha-typescript": "^1.1.9",
     "nodemon": "^1.11.0",
+    "remap-istanbul": "^0.9.5",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
     "typescript": "^2.4.2"
   }
 }

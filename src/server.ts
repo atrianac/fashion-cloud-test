@@ -3,10 +3,10 @@ import * as cookieParser from "cookie-parser";
 import * as express from "express";
 import * as logger from "morgan";
 import * as path from "path";
-import mongoose = require("mongoose");
+import * as mongoose from "mongoose";
 import { CacheRoute } from "./routes/index";
-import errorHandler = require("errorhandler");
-import methodOverride = require("method-override");
+import * as errorHandler from "errorhandler";
+import * as methodOverride from "method-override";
 
 
 export class Server {
@@ -23,10 +23,6 @@ export class Server {
 
         this.config();
         this.routes();
-        this.api();
-    }
-
-    public api() {
     }
 
     public config() {
@@ -48,9 +44,6 @@ export class Server {
             next(err);
         });
 
-        global.Promise = require('q').Promise;
-        mongoose.Promise = global.Promise;
-        
         this.app.use(errorHandler());
   
     }

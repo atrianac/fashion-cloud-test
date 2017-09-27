@@ -1,12 +1,11 @@
-import { Connection } from 'mongoose';
-import mongoose = require('mongoose');
-import config = require('config');
+import * as mongoose from 'mongoose';
+import * as config from 'config';
 
 export class MongoUtil {
 
     private static instance: MongoUtil
 
-    private mongoConnection: Connection
+    private mongoConnection: mongoose.Connection
 
     private constructor() {
         const MONGODB_CONNECTION: string = config.get('cache.mongoUrl');

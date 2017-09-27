@@ -2,7 +2,7 @@ import { CacheEntryModel } from "../model/cache-entry-model";
 import { MongoUtil } from "../infraestructure/mongo-util";
 import { cacheSchema } from "../infraestructure/cache-entry-schema";
 import { Model } from "mongoose";
-import config = require('config');
+import * as config from 'config';
 
 export class CacheEntryService {
 
