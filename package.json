@@ -9,6 +9,25 @@
     "start": "node ./bin/www",
     "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/service/*.ts"
   },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
   "author": "Alejandro Triana",
   "license": "ISC",
   "dependencies": {
@@ -46,6 +65,7 @@
     "mocha": "^3.5.0",
     "mocha-typescript": "^1.1.9",
     "nodemon": "^1.11.0",
+    "nyc": "^11.2.1",
     "remap-istanbul": "^0.9.5",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",

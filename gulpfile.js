@@ -4,6 +4,7 @@ const JSON_FILES = ['src/*.json', 'src/**/*.json'];
 
 const tsProject = ts.createProject('tsconfig.json');
 const mocha = require('gulp-mocha');
+const shell = require('gulp-shell')
 
 gulp.task('scripts', () => {
   const tsResult = tsProject.src()
@@ -21,11 +22,15 @@ gulp.task('assets', function() {
 });
 
 gulp.task('test', function() {
-    return gulp.src('./test/service/*.ts')
+    return gulp.src('test/service/*.ts')
     .pipe(mocha({
         reporter: 'nyan',
         require: ['ts-node/register']
     }));
 });
+
+gulp.task('coverage', shell.task([
+  "nyc mocha"
+]))
 
 gulp.task('default', ['watch', 'assets']);
